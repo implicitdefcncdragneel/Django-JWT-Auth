@@ -26,6 +26,7 @@ class UserProfileView(RetrieveAPIView):
                     'phone_number': user_profile.phone_number,
                     'age': user_profile.age,
                     'gender': user_profile.gender,
+                    'user_type': user_profile.user_type
                     }]
                 }
 

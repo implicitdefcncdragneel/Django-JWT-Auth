@@ -16,6 +16,7 @@ class UserProfile(models.Model):
         ('F', 'Female'),
     )
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    user_type = models.CharField(max_length=50, unique=False, default='Student')
 
     class Meta:
         '''
