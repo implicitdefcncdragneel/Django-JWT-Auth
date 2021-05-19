@@ -5,16 +5,13 @@ from rest.app.user.models import User
 
 class UserProfile(models.Model):
 
-    USER_TYPES = (
+    USERTYPES = (
         ('teacher', 'Teacher'),
         ('student', 'Student'),
         ('employee', 'Employee'),
         ('employer', 'Employer'),
         ('institute', 'Institute'),
     )
-
-
-    user_type = models.CharField(max_length=10, choices=USER_TYPES,default='teacher')
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
@@ -27,6 +24,7 @@ class UserProfile(models.Model):
         ('F', 'Female'),
     )
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    usertype = models.CharField(max_length=10, choices=USERTYPES,default='teacher')
 
     class Meta:
         '''
